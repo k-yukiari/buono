@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="./images/buono_favicon_512.png">
+    <title>BUONO | Italian Restaurant</title>
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="header__logo">
+            <a href="#">
+                <img src="images/header_logo.webp" alt="BUONO Italian Restaurant">
+            </a>
+        </h1>
+
+        <button id="hamburgerButton" class="hamburger" type="button" aria-label="メニューを開く">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- ハンバーガーメニュー -->
+    <nav class="hamburger-menu" id="hamburgerMenu" aria-label="メインメニュー">
+
+        <div class="hamburger-menu__inner">
+
+            <ul class="hamburger-menu__list">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#concept">CONCEPT</a></li>
+                <li><a href="#menu">MENU</a></li>
+                <li><a href="#news">NEWS</a></li>
+                <li><a href="#access">ACCESS</a></li>
+                <li><a href="#gallery">GALLERY</a></li>
+                <li><a href="#reservation">RESERVATION</a></li>
+            </ul>
+
+            <img src="images/link_hm.webp" alt="イタリア料理の食材" class="hamburger-menu__image">
+
+        </div>
+
+    </nav>
+
+    <main>
+        <section class="fv" id="home">
+            <img class="fv__image" src="images/header_mv.webp" alt="イタリア料理と食材">
+
+            <div class="fv__bottom">
+                <p class="fv__copy">A little taste of Italy, right here.</p>
+
+                <a class="reservation" href="#">
+                    RESERVATION
+                </a>
+            </div>
+        </section>
+
+        <section class="concept" id="concept">
+            <div class="concept__inner">
+
+                <img class="concept__image" src="images/consept_bg.webp" alt="マルゲリータピザ">
+
+                <div class="concept__text">
+                    <h2 class="concept__title">CONCEPT</h2>
+
+                    <p>「美味しい」をもっと身近に</p>
+
+                    <p>
+                        BUONOは、気軽にイタリア料理を楽しめる<br>
+                        小さなイタリアンレストランです。
+                    </p>
+
+                    <p>From day to night.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="menu" id="menu">
+
+            <h2 class="menu__title">MENU</h2>
+
+            <div class="menu__list">
+
+                <div class="menu__item">
+                    <h3>LUNCH</h3>
+                    <img src="images/menu_lunch.webp" alt="">
+                    <a href="lunch.html" class="menu__btn">VIEW MORE</a>
+                </div>
+
+                <div class="menu__item">
+                    <h3>DINNER</h3>
+                    <img src="images/menu_dinner.webp" alt="">
+                    <a href="dinner.html" class="menu__btn">VIEW MORE</a>
+                </div>
+
+                <div class="menu__item">
+                    <h3>DRINK</h3>
+                    <img src="images/menu_drink.webp" alt="">
+                    <a href="drink.html" class="menu__btn">VIEW MORE</a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="chef" id="chef">
+            <div class="chef__inner">
+
+                <img src="images/chef_joji.webp" alt="" class="chef__image">
+
+                <div class="chef__content">
+                    <h2 class="chef__title">CHEF</h2>
+
+                    <div class="chef__text">
+                        <p>CHEF /
+                            JOJI<br>本場イタリアで5年料理を学び<br>帰国後、国内のイタリアンレストランで経験を積む。<br>素材の味を活かした料理を大切にし<br>2026年、BUONOをオープン。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="news" id="news">
+            <div class="news__inner">
+
+                <h2 class="news__title">NEWS</h2>
+                <img src="images/news_bg.webp" alt="イタリア料理" class="news__image"/>
+                <dl class="news__list">
+
+                <div class="news__item">
+                    <dt>2026.08.10</dt>
+                    <dd>BUONO OPEN Webサイトをオープンしました。</dd>
+                </div>
+
+                <div class="news__item">
+                    <dt>2026.09.01</dt>
+                    <dd>秋の食材を使った季節限定メニューがスタート。</dd>
+                </div>
+
+                <div class="news__item">
+                    <dt>2026.12.01</dt>
+                    <dd>クリスマスケーキ予約START 数量限定20個販売。</dd>
+                </div>
+
+                <div class="news__item">
+                    <dt>2026.12.20</dt>
+                    <dd>年内30日まで、新年4日より通常営業</dd>
+                </div>
+
+                </dl>
+
+            </div>
+        </section>
+        <section class="access" id="access">
+            <h2 class="access__title">ACCESS</h2>
+
+            <div class="access__inner">
+
+                <!-- 左側：アクセス情報 -->
+                <div class="access__info">
+
+                    <div class="access__item">
+                        <h3>住所</h3>
+                        <p>大阪府大阪市南堀江6丁目2番4号</p>
+                    </div>
+
+                    <div class="access__item">
+                        <h3>最寄り駅</h3>
+                        <p>Osaka Metro千日前線「難波駅」徒歩10分</p>
+                    </div>
+
+                    <div class="access__item">
+                        <h3>駐車場</h3>
+                        <p>提携駐車場5台有</p>
+                    </div>
+
+                </div>
+
+                <!-- 右側：マップ -->
+                <div class="access__map">
+                    <img src="images/access_map.webp" alt="BUONOへのアクセスマップ">
+                </div>
+
+            </div>
+        </section>
+
+        <section class="gallery" id="gallery">
+            <h2 class="gallery__title">GALLERY</h2>
+
+            <div class="gallery__inner">
+                <img src="images/galery_01.webp" alt="店内の料理とワイン" class="gallery__image gallery__image--01" />
+
+                <img src="images/galery_02.webp" alt="料理とドリンク" class="gallery__image gallery__image--02" />
+
+                <img src="images/galery_03.webp" alt="パスタ料理" class="gallery__image gallery__image--03" />
+
+                <img src="images/galery_04.webp" alt="ピザ料理" class="gallery__image gallery__image--04" />
+            </div>
+
+            <p class="gallery__text">
+                「BUONOで過ごす、至福のひととき。」
+            </p>
+        </section>
+    </main>
+
+    <!-- ========================
+     FOOTER
+    ======================== -->
+    <footer class="footer" id="reservation">
+        <div class="footer__inner">
+
+            <h2 class="footer__title">
+                BUONO Italian Restaurant
+            </h2>
+
+            <div class="footer__contents">
+
+                <!-- 営業時間 -->
+                <div class="footer__hours">
+                    <p class="footer__heading">OPEN/CLOSE</p>
+                    <p>LUNCH 11:00-15:00</p>
+                    <p>DINNER 17:00-22:00</p>
+                </div>
+
+                <!-- 電話番号 -->
+                <div class="footer__tel">
+                    <p class="footer__heading">TEL</p>
+                    <a href="tel:0666912671">
+                        06-6691-2671
+                    </a>
+                </div>
+
+                <!-- SNS -->
+                <div class="footer__sns">
+                    <a href="#" class="footer__sns-item">
+                        <span>INSTAGRAM</span>
+                        <img src="images/footer_logo_instagram.webp" alt="Instagram">
+                    </a>
+
+                    <a href="#" class="footer__sns-item">
+                        <span>TikTok</span>
+                        <img src="images/footer_logo_tiktok.webp" alt="TikTok">
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- 予約ボタン -->
+            <a href="#" class="footer__reservation">
+                RESERVATION
+            </a>
+
+        </div>
+
+        <!-- コピーライト -->
+        <p class="footer__copyright">
+            &copy; BUONO Italian Restaurant
+        </p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

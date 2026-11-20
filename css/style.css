@@ -1,0 +1,1705 @@
+/* =========================
+   Base
+========================= */
+body {
+    color: #333;
+/* 本文・小見出し */
+  font-family: "Noto Sans JP", sans-serif;
+}
+/* 見出し */
+h2 {
+  font-family: "Noto Serif JP", serif;
+  font-size: 48px;
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 2px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.concept__image,
+.access__map img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+section {
+    margin: 0 auto 120px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* RESERVATION hover */
+/* VIEW MORE hover */
+/* FOOTER RESERVATION hover */
+.reservation:hover,
+.menu__btn:hover,
+.footer__reservation:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.reservation,
+.menu__btn,
+.footer__reservation {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hamburger-menu__inner,
+.gallery__inner {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+/* スライドインアニメーション共通 */
+.fv__copy,
+.gallery__image {
+  opacity: 0;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.fv__copy.is-visible,
+.gallery__image.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* =========================
+   Header
+========================= */
+/*header*/
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 10px;
+    padding-inline: 32px;
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    background-color: #4F6B4F;
+}
+
+/* ロゴ */
+.header__logo {
+  width: clamp(65px, 7vw, 100px);
+  aspect-ratio: 5 / 3;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.header__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* =========================
+   Hamburger Menu
+========================= */
+.hamburger {
+  width: clamp(40px, 4.2vw, 60px);
+  height: 44px;
+  background: none;
+  border: none;
+  padding: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 1100;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    margin-bottom: 10px;
+    background: #fff;
+    transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.5s ease;
+}
+
+.hamburger span:last-child {
+    margin-bottom: 0;
+}
+
+/* メニュー本体 */
+.hamburger-menu {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  background-color: #f1ebec;
+  z-index: 1000;
+  display: none;
+}
+
+.hamburger-menu.is-open {
+  display: block;
+}
+
+.hamburger-menu__list {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  list-style: none;
+}
+
+.hamburger-menu__list a {
+  font-size: 24px;
+}
+
+.hamburger-menu__image {
+  position: absolute;
+  top: 50%;
+  left: 520px;
+  transform: translateY(-50%);
+  width: 720px;
+  height: 450px;
+  object-fit: cover;
+}
+
+.hamburger.is-open span:nth-child(1) {
+  transform: translateY(13px) rotate(45deg);
+}
+
+.hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-open span:nth-child(3) {
+  transform: translateY(-13px) rotate(-45deg);
+}
+
+/* メニューを開いたとき、ヘッダーを透明にする */
+body:has(.hamburger-menu.is-open) .header {
+  background-color: transparent;
+}
+
+/* 開いたときのボタンを最前面にする */
+body:has(.hamburger-menu.is-open) .hamburger {
+  z-index: 2000;
+}
+
+/* 開いたときの線を黒にする */
+body:has(.hamburger-menu.is-open) .hamburger span {
+  background-color: #333;
+}
+ 
+/* メニューを開いたときはロゴを非表示 */
+body:has(.hamburger-menu.is-open) .header__logo {
+  visibility: hidden;
+}
+/* =========================
+   FV
+========================= */
+.fv {
+    position: relative;
+    width: 100%;
+}
+
+.fv__image {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* FV下部 */
+.fv__bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(169, 134, 104, 0.75);
+}
+
+/* FV 英語テキスト スライドイン */
+.fv__copy {
+  color: #ffffff;
+  font-size: clamp(24px, 4vw, 56px);
+  text-align: center;
+  transform: translateX(-60px);
+}
+
+/* =========================
+   Reservation Button
+========================= */
+ .reservation {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 190px;
+    height: 72px;
+    color: #fff;
+    background: #4F6B4F;
+    z-index: 99;
+ }
+
+/* RESERVATION hover */
+
+/* ====================
+   CONCEPT
+==================== */
+.concept {
+  padding-inline: clamp(20px, 8vw, 115px);
+}
+
+
+.concept__inner {
+  position: relative;
+  width: 100%;
+  max-width: 1210px;
+  margin: 0 auto;
+}
+
+.concept__text {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.concept__title {
+  margin: 0 0 65px;
+}
+
+.concept__text p {
+  font-size: clamp(20px, 1.8vw, 26px);
+  line-height: 1.8;
+  margin: 0 0 65px;
+}
+
+.concept__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ====================
+   MENU
+==================== */
+
+.menu {
+  width: 100%;
+  background:
+    linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("../images/menu_bg.webp");
+  background-size: cover;
+  background-position: center;
+  padding-block: 60px;
+  box-sizing: border-box;
+}
+
+.menu__title {
+  width: fit-content;
+  margin: 0 auto 40px;
+  line-height: 1.1;
+}
+
+/* 3つを横並び */
+.menu__list {
+  display: flex;
+  justify-content: center;
+  gap: clamp(24px, 5vw, 111px);
+  padding-inline: clamp(16px, 3vw, 40px);
+}
+
+/* 1つずつ */
+.menu__item {
+  flex: 1;
+  max-width: 330px;
+  min-width: 0;
+  text-align: center;
+}
+
+.menu__item h3 {
+  margin: 0 0 16px;
+  font-size: clamp(24px, 2.8vw, 40px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* 写真 */
+.menu__item img {
+  width: 100%;
+  aspect-ratio: 330 / 235;
+  object-fit: cover;
+}
+
+/* VIEW MORE */
+.menu__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min(185px, 85%);
+  height: clamp(36px, 3.2vw, 45px);
+  font-size: clamp(16px, 1.7vw, 24px);
+  margin: 16px auto 0;
+  background-color: #4F6B4F;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+/* ====================
+   CHEF
+==================== */
+
+.chef {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  padding-block: 80px;
+}
+
+.chef::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/chef_bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.chef__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+/* 人物画像 */
+.chef__image {
+  width: 455px;
+  height: 455px;
+  object-fit: cover;
+}
+
+/* 右側 */
+.chef__content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* CHEF */
+.chef__title {
+  margin: 0 0 48px;
+}
+
+/* 文章全体 */
+.chef__text {
+  font-size: 24px;
+}
+
+.chef__text p {
+  margin: 0 0 32px;
+}
+
+.chef__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ====================
+   NEWS
+==================== */
+
+.news {
+  max-width: 1280px;
+  background-image: url("../images/news_bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.news__inner {
+  width: 100%;
+  height: 100%;
+  padding: 80px 60px;
+}
+
+/* PC版ではNEWSのHTML画像を非表示 */
+.news__image {
+  display: none;
+}
+
+/* NEWS本文 */
+.news__list {
+  font-size: 24px;
+  line-height: 38px;
+}
+
+.news__item {
+  margin-bottom: 24px;
+}
+
+.news__item:last-child {
+  margin-bottom: 0;
+}
+
+.news__item dd {
+  margin: 0;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+/* ==========================
+   ACCESS
+========================== */
+
+.access {
+  width: 1280px;
+  max-width: 100%;
+}
+
+/* ACCESS 見出し */
+.access__title {
+  width: fit-content;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+/* 左右のレイアウト */
+.access__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 0 24px;
+}
+
+/* 左側 */
+.access__info {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 各情報を横並び */
+.access__item {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: fit-content;
+  padding: 12px 0 4px;
+  border-bottom: 1px solid #333;
+}
+
+/* 小見出し */
+.access__item h3 {
+  width: 140px;
+  flex-shrink: 0;
+  font-size: 24px;
+}
+
+/* 本文 */
+.access__item p {
+  font-size: 24px;
+}
+
+/* マップ */
+.access__map {
+  width: 36%;
+  flex-shrink: 0;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+  position: relative;
+  width: 100%;
+  height: 960px;
+  background-image: url("../images/galery_bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 見出し */
+.gallery__title {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  line-height: 1.1;
+}
+
+/* 写真共通 */
+.gallery__image {
+  position: absolute;
+  object-fit: cover;
+}
+
+/* 左上 */
+.gallery__image--01 {
+  width: 24.3%;
+  height: auto;
+  aspect-ratio: 350 / 220;
+  top: 160px;
+  left: 18%;
+}
+
+/* 右上 */
+.gallery__image--02 {
+  width: 33.3%;
+  height: auto;
+  aspect-ratio: 480 / 260;
+  top: 210px;
+  right: 14%;
+}
+
+/* 左下 */
+.gallery__image--03 {
+  width: 20.8%;
+  height: auto;
+  aspect-ratio: 300 / 230;
+  top: 450px;
+  left: 28%;
+}
+
+/* 右下 */
+.gallery__image--04 {
+  width: 20.8%;
+  height: auto;
+  aspect-ratio: 300 / 230;
+  top: 530px;
+  right: 22%;
+}
+
+/* 下部テキスト */
+.gallery__text {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+/* 左側の写真 */
+.gallery__image--01,
+.gallery__image--03 {
+  transform: translateX(-60px);
+}
+
+/* 右側の写真 */
+.gallery__image--02,
+.gallery__image--04 {
+  transform: translateX(60px);
+}
+
+/* 写真ごとに時間差をつける */
+.gallery__image--02 {
+  transition-delay: 0.15s;
+}
+
+.gallery__image--03 {
+  transition-delay: 0.3s;
+}
+
+.gallery__image--04 {
+  transition-delay: 0.45s;
+}
+
+/* ========================
+   FOOTER
+======================== */
+
+.footer {
+  position: relative;
+  width: 100%;
+  background-image: url("../images/footer_bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding-block: 80px;
+  padding-inline: clamp(16px, 5.56vw, 80px);
+  box-sizing: border-box;
+}
+
+/* 白い背景 */
+.footer__inner {
+  width: 100%;
+  max-width: 1280px;
+  background-color: #fff;
+  padding: 64px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* タイトル */
+.footer__title {
+  width: fit-content;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+/* 3列の情報 */
+.footer__contents {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+/* 共通テキスト */
+.footer__contents p,
+.footer__contents a {
+  font-size: 24px;
+  line-height: 1.8;
+}
+
+.footer__heading {
+  margin-bottom: 24px;
+}
+
+/* 営業時間 */
+.footer__hours {
+  text-align: center;
+}
+
+/* 電話番号 */
+.footer__tel {
+  text-align: center;
+}
+
+/* SNS */
+.footer__sns {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer__sns-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer__sns-item img {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* SNSアイコン hover */
+.footer__sns-item:hover img {
+  transform: translateY(-4px);
+}
+
+/* 予約ボタン */
+.footer__reservation {
+  width: 310px;
+  background-color: #6e9a70;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-top: 60px;
+  padding-block: 20px;
+}
+
+/* コピーライト */
+.footer__copyright {
+  position: absolute;
+  bottom: 52.5px;
+  left: 50%;
+  transform: translate(-50%, 50%);  
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+}
+
+/* =========================
+   MENU SUB PAGES（LUNCH / DINNER / DRINK）
+========================= */
+.menu-page {
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 60px 60px 100px;
+  background-color: #fff;
+}
+
+/* HOMEへ戻る */
+.menu-page__home {
+  display: inline-block;
+  font-size: 32px;
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+/* HOME hover */
+.menu-page__home:hover {
+  transform: translateY(-4px);
+}
+
+/* ページ見出し */
+.menu-page__title {
+  margin-top: 85px;
+  font-size: 48px;
+  font-weight: normal;
+  text-align: center;
+  font-family: "Noto Serif JP", serif;
+}
+
+/* LUNCH SET */
+.menu-page__section {
+  margin-top: 70px;
+}
+
+.menu-page__heading {
+  margin-bottom: 16px;
+  font-size: 32px;
+  font-weight: normal;
+  text-align: center;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+/* 料理を横3列に並べる */
+.menu-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 340px);
+  justify-content: space-between;
+  gap: 40px;
+  justify-items: stretch;
+}
+
+/* 料理画像 */
+.menu-page__item img {
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin-inline: auto;
+}
+
+/* 料理名 */
+.menu-page__item h3 {
+  margin-top: 6px;
+  font-size: 26px;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 説明文 */
+.menu-page__item p {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* 下段の料理 */
+.menu-page__section--other {
+  margin-top: 70px;
+}
+
+/* CONCEPT・CHEF 共通ズームアウトアニメーション */
+.concept__title,
+.concept__text p,
+.chef__image,
+.chef__title,
+.chef__text p {
+  opacity: 0;
+  scale: 1.15;
+  transition:
+    opacity 0.8s ease,
+    scale 0.8s ease;
+}
+
+/* スクロールで表示 */
+.concept__title.is-visible,
+.concept__text p.is-visible,
+.chef__image.is-visible,
+.chef__title.is-visible,
+.chef__text p.is-visible {
+  opacity: 1;
+  scale: 1;
+}
+
+/* =========================
+   RESPONSIVE（レスポンシブ対応）
+========================= */
+/* タブレット用 */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+/*header*/  
+  .hamburger-menu__image {
+   left: 40%;
+   width: 55%;
+   height: auto;
+   aspect-ratio: 8 / 5;
+  }
+
+  .hamburger-menu__list {
+   left: 5%;
+  }
+
+/*CONCEPT*/
+  .concept__title {
+    order: 1;
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .concept__image {
+   order: 2;
+   margin-bottom: 40px;
+  }
+
+  .concept__text {
+   display: contents;
+   width: 50%;
+   padding-left: 12px;
+   box-sizing: border-box;
+  }
+
+  .concept__text p {
+    font-size: 16px;
+    order: 3;
+    margin: 0 0 24px;
+    line-height: 1.6;
+  }
+
+  .concept__inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+/* MENU */
+  .menu {
+    height: auto;
+    min-height: 0;
+    padding-bottom: 60px;
+  }
+
+
+/*CHEF*/
+    .chef__image {
+    position: static;
+    width: 300px;
+    height: 300px;
+    transform: none;
+    order: 2;
+  }
+
+  .chef__content {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: contents;
+  }
+
+  .chef__inner {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 24px;
+   justify-content: center;
+  }
+
+  .chef__title {
+   order: 1;
+   margin: 0;
+  }
+
+  .chef__text {
+   order: 3;
+  }
+
+/* NEWS */
+  .news {
+   background-position: left center;
+  }
+
+  .news__list {
+   font-size: clamp(13px, 1.6vw, 18px);
+  }
+  .news__title {
+   left: 40px;
+  }
+/*ACCESS*/
+  .access__map {
+  width: 28%;
+  }
+
+  .access__item p {
+  font-size: clamp(18px, 2vw, 22px);
+  }
+
+  .access__item {
+  gap: 1rem;
+  }
+
+  .access__item h3 {
+  width: auto;
+  white-space: nowrap;
+  }
+/*GALLERY*/
+  .gallery {
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+
+  .gallery__inner {
+    transform: translateY(5%);
+  }
+
+  .gallery__image--01 {
+    height: 22.9%;
+    top: 23%;
+    left: 18.1%;
+  }
+
+  .gallery__image--02 {
+    height: 27.1%;
+    top: 21.9%;
+    right: 13.9%;
+  }
+
+  .gallery__image--03 {
+    height: 24%;
+    top: 46.9%;
+    left: 27.8%;
+  }
+
+  .gallery__image--04 {
+    height: 24%;
+    top: 50%;
+    right: 21.9%;
+  }
+
+  .gallery__text {
+    bottom: 4.2%;
+  }
+/*FOOTER*/
+  .footer__contents {
+    gap: 16px;
+  }
+
+  .footer__inner {
+  padding: 64px 32px;
+  }
+
+  .footer__sns-item {
+   display: grid;
+   grid-template-columns: minmax(0, 1fr) 50px;
+   align-items: center;
+   gap: 16px;
+  }
+
+  .footer__sns-item img {
+   width: 50px;
+   height: 50px;
+  }
+/* LUNCH / DINNER / DRINK */
+  .menu-page__item {
+  min-width: 0;
+  }
+
+  .menu-page__item img {
+   height: auto;
+  }
+
+  .menu-page__item h3 {
+   font-size: 16px;
+   white-space: normal;
+   overflow-wrap: anywhere;
+  }
+
+  .menu-page__item p {
+   font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menu-page__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 60px 30px;
+  }
+   .menu-page__title {
+    margin: 100px auto 100px;
+  }
+
+  .menu-page__heading {
+    margin: 0 auto 48px;
+}
+  .menu-page__home {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 767px) {
+  main > section + section {
+    margin-top: 80px;
+  }
+
+  main > section {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .fv {
+    height: 700px;
+    overflow: hidden;
+  }
+  .fv__image {
+    height: 100%;
+    object-position: center;
+  }
+  .fv__bottom {
+    height: 100px;
+    background: rgba(169, 134, 104, 0.25);
+  }
+  .fv__copy {
+    font-size: 16px;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+/* =========================
+   スマホ版 ヘッダー・固定予約ボタン
+========================= */
+  .header {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    z-index: 1101;
+  }
+
+  .reservation {
+    width: clamp(150px, 40vw, 180px);
+    height: clamp(54px, 14vw, 64px);
+    z-index: 1000;
+  }
+
+/* ==========================
+   スマホ版 CONCEPT
+==========================*/
+ .concept {
+    width: 100%;
+    overflow-x: clip;
+  }
+
+  .concept__inner {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 画像と文章の親要素を並べ替える */
+  .concept__text {
+    display: contents;
+  }
+  /* 見出し */
+  .concept__title {
+    order: 1;
+    width: 190px;
+    min-height: 60px;
+    margin: 0 0 20px;
+    font-size: 40px;
+    text-align: center;
+  }
+
+  /* 画像 */
+  .concept__image {
+    order: 2;
+    height: auto;
+    margin: 0 0 20px;
+  }
+
+  /* テキスト */
+  .concept__text p {
+    order: 3;
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 0 20px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+/* ==========================
+   スマホ版 MENU
+========================== */
+  /* MENU見出し */ 
+  /* 修正 */
+  .menu__title {
+    width: 190px;
+    height: 60px;
+    margin: 0 auto 20px;
+    padding: 0;
+    font-size: 40px;
+    line-height: 60px;
+    text-align: center;
+  }
+  /* メニューカードを縦並び */
+  .menu__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+  /* 各カード */
+  .menu__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  /* LUNCH・DINNER・DRINK */
+  .menu__item h3 {
+    font-size: 24px;
+    margin: 0 0 8px;
+  }
+  /* 画像 */
+  .menu__item img {
+    width: 280px;
+    height: 280px;
+    margin: 0 auto 8px;
+  }
+  /* VIEW MOREボタン */
+  .menu__btn {
+    display: inline-flex;
+    font-size: 14px;
+    margin: 0;
+    padding: 8px 16px;
+    text-align: center;
+  }
+  
+/* =========================
+   スマホ版 CHEF
+======================== */
+
+.chef {
+  height: auto;
+  min-height: 0;
+  box-sizing: border-box;
+  padding: 40px 0;
+  overflow-x: clip;
+}
+
+/* 全体 */
+.chef__inner {
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 見出し・文章のまとまり */
+.chef__content {
+  position: static;
+  width: 100%;
+  height: auto;
+  display: contents;
+  text-align: center;
+}
+
+/* 見出し */
+.chef__title {
+  order: 1;
+  width: 190px;
+  height: 60px;
+  margin: 0 0 20px;
+  font-size: 40px;
+  line-height: 60px;
+  text-align: center;
+}
+
+/* シェフ画像 */
+.chef__image {
+  order: 2;
+  position: static;
+  width: min(72%, 400px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  max-width: 100%;
+  margin: 0 0 20px;
+  transform: none;
+}
+
+/* 文章 */
+.chef__text {
+  order: 3;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.chef__text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ==========================
+   スマホ版 NEWS
+========================== */
+
+.news {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  background-image: none;
+}
+
+.news__inner {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: unset;
+}
+
+/* 見出し */
+.news__title {
+  position: static;
+  width: 190px;
+  height: 60px;
+  margin: 0 0 24px;
+  padding: 0;
+  font-size: 40px;
+  line-height: 60px;
+  text-align: center;
+}
+
+/* 画像 */
+.news__image {
+  position: static;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  margin: 0;
+}
+
+/* ニュース一覧 */
+.news__list {
+  position: static;
+  height: auto;
+  width: calc(100% - 40px);
+  margin: 24px auto 0;
+  padding: 0;
+}
+
+/* ニュース1件 */
+.news__item {
+  flex-direction: column;
+  margin-bottom: 20px;
+  border-bottom: none;
+}
+
+/* 日付 */
+.news__item dt {
+  margin: 0 0 12px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* 本文と下線 */
+.news__item dd {
+  line-height: 1.5;
+  text-decoration: none;
+  border-bottom: 2px solid #555;
+  padding-bottom: 2px;
+  white-space: normal;
+  font-size: 14px;
+}
+
+/* ==========================
+   スマホ版 ACCESS
+========================== */
+
+.access {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+}
+
+/* 全体を縦並び・中央揃え */
+.access__inner {
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+}
+
+/* ACCESS見出し */
+.access__title {
+  position: static;
+  height: auto;
+  margin: 0 auto 24px;
+  font-size: 40px;
+  line-height: 1.5;
+}
+
+/* 住所・最寄り駅・駐車場 */
+.access__info {
+  position: static;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 各項目 */
+.access__item {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  border-bottom: none;
+}
+
+/* 項目の見出し：下線なし */
+.access__item h3 {
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  margin: 0;
+}
+
+/* 説明文：文字の下だけに線 */
+.access__item p {
+  display: inline-block;
+  width: auto;
+  max-width: calc(100% - 20px);
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+  border: none;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+/* 地図 */
+.access__map {
+  position: static;
+  width: min(350px, 100%);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  margin: 24px auto 0;
+}
+
+.access__map img {
+  height: auto;
+  object-fit: contain;
+}
+
+/* ==========================
+   スマホ版 GALLERY
+========================== */
+
+.gallery {
+  height: auto;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+.gallery__inner {
+  max-width: 390px;
+  height: 600px;
+  overflow-x: clip;
+}
+
+.gallery__text {
+  position: static;
+  transform: none;
+  margin: 24px auto 0;
+  font-size: 18px;
+}
+
+/* スマホ版 GALLERY画像共通 */
+.gallery__image {
+  width: 180px;
+  height: 150px;
+}
+
+/* 1枚目：左上 */
+.gallery__image--01 {
+  top: 0;
+  left: 10%;
+  right: auto;
+}
+
+/* 2枚目：右上 */
+.gallery__image--02 {
+  top: 150px;
+  left: auto;
+  right: 10%;
+}
+
+/* 3枚目：左下 */
+.gallery__image--03 {
+  top: 300px;
+  left: 10%;
+  right: auto;
+}
+
+/* 4枚目：右下 */
+.gallery__image--04 {
+  top: 450px;
+  left: auto;
+  right: 10%;
+}
+
+.gallery__title {
+  position: static;
+  transform: none;
+  margin: 0 auto 24px;
+  font-size: 40px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ==========================
+   スマホ版 FOOTER
+========================== */
+.footer {
+  height: 700px;
+  margin-top: 80px;
+  box-sizing: border-box;
+  gap: 0;
+}
+
+.footer__inner {
+  width: 250px;
+  height: 620px;
+  box-sizing: border-box;
+  padding: 24px 12px;
+  justify-content: center;
+}
+
+/* 店名 */
+.footer__title {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 32px;
+  white-space: nowrap;
+}
+
+/* 3列から縦並びに変更 */
+.footer__contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* テキストの大きさ */
+.footer__contents p,
+.footer__contents a {
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* 営業時間・電話・SNSを中央揃え */
+.footer__hours,
+.footer__tel,
+.footer__sns {
+  width: 100%;
+  text-align: center;
+}
+
+/* 各項目の見出し */
+.footer__heading {
+  margin-bottom: 8px;
+}
+
+/* SNS全体 */
+.footer__sns {
+  align-items: center;
+}
+
+/* Instagram・TikTokそれぞれ */
+.footer__sns-item {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* SNSロゴ */
+.footer__sns-item img {
+  width: 40px;
+  height: 40px;
+}
+
+/* 予約ボタン */
+.footer__reservation {
+  width: 180px;
+  height: 44px;
+  flex-shrink: 0;
+  margin-top: 32px;
+  font-size: 14px;
+}
+
+.footer__copyright {
+  bottom: 12px;
+  transform: translateX(-50%);
+  width: 100%;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ハンバーガーメニューの中央配置 */
+
+.hamburger-menu__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-50px);
+}
+
+.hamburger-menu__list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger-menu__list li {
+  width: 100%;
+  text-align: center;
+}
+
+.hamburger-menu__list a {
+  display: block;
+  line-height: 1;
+  font-weight: 400;
+}
+
+/* 通常時はメニューを隠す */
+
+.hamburger-menu {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* 開いたときだけ表示 */
+.hamburger-menu.is-open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hamburger-menu__image {
+  display: none;
+}
+/* =========================
+   スマホ版 MENU PAGE 共通
+========================= */
+
+.menu-page {
+  width: 100%;
+  padding: 35px 0 84px;
+  box-sizing: border-box;
+}
+
+.menu-page__home {
+  margin-left: 35px;
+  font-size: 14px;
+}
+
+.menu-page__title {
+  margin: 84px auto 24px;
+  font-size: 32px;
+}
+
+.menu-page__heading {
+  margin: 0 auto 24px;
+  font-size: 24px;
+}
+
+.menu-page__grid {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 60px;
+}
+
+.menu-page__item {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+}
+
+.menu-page__item img {
+  height: auto;
+}
+
+.menu-page__item h3 {
+  margin: 0 0 16px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.menu-page__item p {
+  margin: 0;
+  font-size: 14px;
+}
+}

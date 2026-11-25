@@ -5,6 +5,7 @@ body {
     color: #333;
 /* 本文・小見出し */
   font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.5;
 }
 /* 見出し */
 h2 {
@@ -293,7 +294,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
 
 .concept__text p {
   font-size: clamp(20px, 1.8vw, 26px);
-  line-height: 1.8;
   margin: 0 0 65px;
 }
 
@@ -308,21 +308,17 @@ body:has(.hamburger-menu.is-open) .header__logo {
 .menu {
   width: 100%;
   background:
-    linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    ),
-    url("../images/menu_bg.webp");
-  background-size: cover;
-  background-position: center;
+  linear-gradient(
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.5)
+  ) center / cover,
+  url("../images/menu_bg.webp") center / cover;
   padding-block: 60px;
-  box-sizing: border-box;
 }
 
 .menu__title {
   width: fit-content;
   margin: 0 auto 40px;
-  line-height: 1.1;
 }
 
 /* 3つを横並び */
@@ -345,7 +341,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
   margin: 0 0 16px;
   font-size: clamp(24px, 2.8vw, 40px);
   font-weight: 400;
-  line-height: 1;
 }
 
 /* 写真 */
@@ -366,7 +361,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
   margin: 16px auto 0;
   background-color: #4F6B4F;
   color: #fff;
-  box-sizing: border-box;
 }
 
 /* ====================
@@ -384,10 +378,7 @@ body:has(.hamburger-menu.is-open) .header__logo {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../images/chef_bg.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url("../images/chef_bg.webp") center / cover no-repeat;
   opacity: 0.5;
   z-index: 0;
 }
@@ -440,10 +431,7 @@ body:has(.hamburger-menu.is-open) .header__logo {
 
 .news {
   max-width: 1280px;
-  background-image: url("../images/news_bg.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url("../images/news_bg.webp") center / cover no-repeat;
 }
 
 .news__inner {
@@ -460,7 +448,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
 /* NEWS本文 */
 .news__list {
   font-size: 24px;
-  line-height: 38px;
 }
 
 .news__item {
@@ -545,10 +532,7 @@ body:has(.hamburger-menu.is-open) .header__logo {
   position: relative;
   width: 100%;
   height: 960px;
-  background-image: url("../images/galery_bg.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url("../images/galery_bg.webp") center / cover no-repeat;
 }
 
 /* 見出し */
@@ -558,7 +542,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
   left: 50%;
   transform: translateX(-50%);
   width: fit-content;
-  line-height: 1.1;
 }
 
 /* 写真共通 */
@@ -647,10 +630,7 @@ body:has(.hamburger-menu.is-open) .header__logo {
 .footer {
   position: relative;
   width: 100%;
-  background-image: url("../images/footer_bg.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url("../images/footer_bg.webp") center / cover no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -658,7 +638,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
   gap: 24px;
   padding-block: 80px;
   padding-inline: clamp(16px, 5.56vw, 80px);
-  box-sizing: border-box;
 }
 
 /* 白い背景 */
@@ -692,7 +671,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
 .footer__contents p,
 .footer__contents a {
   font-size: 24px;
-  line-height: 1.8;
 }
 
 .footer__heading {
@@ -835,7 +813,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
 .menu-page__item p {
   margin-top: 16px;
   font-size: 16px;
-  line-height: 1.6;
   text-align: center;
 }
 
@@ -898,55 +875,34 @@ body:has(.hamburger-menu.is-open) .header__logo {
 
   .concept__text {
    display: contents;
-   width: 50%;
-   padding-left: 12px;
-   box-sizing: border-box;
   }
 
   .concept__text p {
     font-size: 16px;
     order: 3;
     margin: 0 0 24px;
-    line-height: 1.6;
   }
 
   .concept__inner {
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-/* MENU */
-  .menu {
-    height: auto;
-    min-height: 0;
-    padding-bottom: 60px;
-  }
-
-
 /*CHEF*/
     .chef__image {
-    position: static;
     width: 300px;
     height: 300px;
-    transform: none;
     order: 2;
   }
 
   .chef__content {
-    position: static;
-    width: 100%;
-    height: auto;
     display: contents;
   }
 
   .chef__inner {
-   display: flex;
    flex-direction: column;
-   align-items: center;
    gap: 24px;
-   justify-content: center;
   }
 
   .chef__title {
@@ -966,9 +922,7 @@ body:has(.hamburger-menu.is-open) .header__logo {
   .news__list {
    font-size: clamp(13px, 1.6vw, 18px);
   }
-  .news__title {
-   left: 40px;
-  }
+
 /*ACCESS*/
   .access__map {
   width: 28%;
@@ -1048,10 +1002,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
   min-width: 0;
   }
 
-  .menu-page__item img {
-   height: auto;
-  }
-
   .menu-page__item h3 {
    font-size: 16px;
    white-space: normal;
@@ -1069,7 +1019,7 @@ body:has(.hamburger-menu.is-open) .header__logo {
     gap: 60px 30px;
   }
    .menu-page__title {
-    margin: 100px auto 100px;
+    margin: 100px auto;
   }
 
   .menu-page__heading {
@@ -1097,7 +1047,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
   }
   .fv__image {
     height: 100%;
-    object-position: center;
   }
   .fv__bottom {
     height: 100px;
@@ -1105,7 +1054,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
   }
   .fv__copy {
     font-size: 16px;
-    line-height: 1.5;
     white-space: nowrap;
   }
 
@@ -1115,7 +1063,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
   .header {
     position: relative;
     top: auto;
-    left: auto;
     width: 100%;
     z-index: 1101;
   }
@@ -1135,9 +1082,7 @@ body:has(.hamburger-menu.is-open) .header__logo {
   }
 
   .concept__inner {
-    width: 100%;
     max-width: none;
-    height: auto;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -1168,11 +1113,8 @@ body:has(.hamburger-menu.is-open) .header__logo {
   /* テキスト */
   .concept__text p {
     order: 3;
-    width: 100%;
-    padding: 0 20px;
     margin: 0 0 20px;
     font-size: 14px;
-    text-align: center;
   }
 
 /* ==========================
@@ -1184,9 +1126,7 @@ body:has(.hamburger-menu.is-open) .header__logo {
     width: 190px;
     height: 60px;
     margin: 0 auto 20px;
-    padding: 0;
     font-size: 40px;
-    line-height: 60px;
     text-align: center;
   }
   /* メニューカードを縦並び */
@@ -1227,9 +1167,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
 ======================== */
 
 .chef {
-  height: auto;
-  min-height: 0;
-  box-sizing: border-box;
   padding: 40px 0;
   overflow-x: clip;
 }
@@ -1242,11 +1179,7 @@ body:has(.hamburger-menu.is-open) .header__logo {
 
 /* 見出し・文章のまとまり */
 .chef__content {
-  position: static;
-  width: 100%;
-  height: auto;
   display: contents;
-  text-align: center;
 }
 
 /* 見出し */
@@ -1263,13 +1196,10 @@ body:has(.hamburger-menu.is-open) .header__logo {
 /* シェフ画像 */
 .chef__image {
   order: 2;
-  position: static;
   width: min(72%, 400px);
   height: auto;
   aspect-ratio: 1 / 1;
-  max-width: 100%;
   margin: 0 0 20px;
-  transform: none;
 }
 
 /* 文章 */
@@ -1278,7 +1208,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
   width: 100%;
   padding: 0 20px;
   margin: 0;
-  box-sizing: border-box;
   text-align: center;
 }
 
@@ -1294,8 +1223,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
 
 .news {
   width: 100%;
-  height: auto;
-  min-height: 0;
   background-image: none;
 }
 
@@ -1309,19 +1236,15 @@ body:has(.hamburger-menu.is-open) .header__logo {
 
 /* 見出し */
 .news__title {
-  position: static;
   width: 190px;
   height: 60px;
   margin: 0 0 24px;
-  padding: 0;
   font-size: 40px;
-  line-height: 60px;
   text-align: center;
 }
 
 /* 画像 */
 .news__image {
-  position: static;
   width: 100%;
   height: 240px;
   object-fit: cover;
@@ -1330,8 +1253,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
 
 /* ニュース一覧 */
 .news__list {
-  position: static;
-  height: auto;
   width: calc(100% - 40px);
   margin: 24px auto 0;
   padding: 0;
@@ -1339,9 +1260,7 @@ body:has(.hamburger-menu.is-open) .header__logo {
 
 /* ニュース1件 */
 .news__item {
-  flex-direction: column;
   margin-bottom: 20px;
-  border-bottom: none;
 }
 
 /* 日付 */
@@ -1353,11 +1272,9 @@ body:has(.hamburger-menu.is-open) .header__logo {
 
 /* 本文と下線 */
 .news__item dd {
-  line-height: 1.5;
   text-decoration: none;
   border-bottom: 2px solid #555;
   padding-bottom: 2px;
-  white-space: normal;
   font-size: 14px;
 }
 
@@ -1367,31 +1284,23 @@ body:has(.hamburger-menu.is-open) .header__logo {
 
 .access {
   width: 100%;
-  height: auto;
-  min-height: 0;
 }
 
 /* 全体を縦並び・中央揃え */
 .access__inner {
   width: 100%;
-  height: auto;
   flex-direction: column;
 }
 
 /* ACCESS見出し */
 .access__title {
-  position: static;
-  height: auto;
   margin: 0 auto 24px;
   font-size: 40px;
-  line-height: 1.5;
 }
 
 /* 住所・最寄り駅・駐車場 */
 .access__info {
-  position: static;
   width: 100%;
-  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1424,8 +1333,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
   margin: 0;
   padding: 0;
   font-size: 14px;
-  line-height: 1.6;
-  text-align: center;
   border: none;
   text-decoration: underline;
   text-decoration-thickness: 2px;
@@ -1434,10 +1341,7 @@ body:has(.hamburger-menu.is-open) .header__logo {
 
 /* 地図 */
 .access__map {
-  position: static;
   width: min(350px, 100%);
-  aspect-ratio: 1 / 1;
-  height: auto;
   margin: 24px auto 0;
 }
 
@@ -1453,7 +1357,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
 .gallery {
   height: auto;
   padding: 40px 0;
-  box-sizing: border-box;
 }
 
 .gallery__inner {
@@ -1479,13 +1382,11 @@ body:has(.hamburger-menu.is-open) .header__logo {
 .gallery__image--01 {
   top: 0;
   left: 10%;
-  right: auto;
 }
 
 /* 2枚目：右上 */
 .gallery__image--02 {
   top: 150px;
-  left: auto;
   right: 10%;
 }
 
@@ -1493,13 +1394,11 @@ body:has(.hamburger-menu.is-open) .header__logo {
 .gallery__image--03 {
   top: 300px;
   left: 10%;
-  right: auto;
 }
 
 /* 4枚目：右下 */
 .gallery__image--04 {
   top: 450px;
-  left: auto;
   right: 10%;
 }
 
@@ -1518,14 +1417,12 @@ body:has(.hamburger-menu.is-open) .header__logo {
 .footer {
   height: 700px;
   margin-top: 80px;
-  box-sizing: border-box;
   gap: 0;
 }
 
 .footer__inner {
   width: 250px;
   height: 620px;
-  box-sizing: border-box;
   padding: 24px 12px;
   justify-content: center;
 }
@@ -1533,7 +1430,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
 /* 店名 */
 .footer__title {
   font-size: 16px;
-  line-height: 1.5;
   margin-bottom: 32px;
   white-space: nowrap;
 }
@@ -1550,7 +1446,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
 .footer__contents p,
 .footer__contents a {
   font-size: 14px;
-  line-height: 1.6;
   text-align: center;
 }
 
@@ -1628,7 +1523,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
 
 .hamburger-menu__list a {
   display: block;
-  line-height: 1;
   font-weight: 400;
 }
 
@@ -1658,7 +1552,6 @@ body:has(.hamburger-menu.is-open) .header__logo {
 .menu-page {
   width: 100%;
   padding: 35px 0 84px;
-  box-sizing: border-box;
 }
 
 .menu-page__home {
@@ -1688,14 +1581,9 @@ body:has(.hamburger-menu.is-open) .header__logo {
   text-align: center;
 }
 
-.menu-page__item img {
-  height: auto;
-}
-
 .menu-page__item h3 {
   margin: 0 0 16px;
   font-size: 24px;
-  font-weight: 400;
 }
 
 .menu-page__item p {
